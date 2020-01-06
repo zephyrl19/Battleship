@@ -1,0 +1,29 @@
+OBJS	= main.o boardSource.o Player.o gamePlay.o
+SOURCE	= main.cpp boardSource.cpp Player.cpp gamePlay.cpp
+HEADER	= boardHeader.hpp Player.hpp gamePlay.hpp
+OUT	= runFile
+CC	 = g++
+FLAGS	 = -g -c -Wall
+LFLAGS	 = 
+
+all: $(OBJS)
+	$(CC) -g $(OBJS) -o $(OUT) $(LFLAGS)
+
+main.o: main.cpp
+	$(CC) $(FLAGS) main.c -std=c99
+
+boardSource.o: boardSource.cpp
+	$(CC) $(FLAGS) boardSource.cpp -std=c99
+
+pieceSource.o: pieceSource.cpp
+	$(CC) $(FLAGS) pieceSource.cpp -std=c99
+
+Player.o: Player.cpp
+	$(CC) $(FLAGS) Player.cpp -std=c99
+
+gamePlay.o: gamePlay.cpp
+	$(CC) $(FLAGS) gamePlay.cpp -std=c99
+
+
+clean:
+	rm -f $(OBJS) $(OUT)
